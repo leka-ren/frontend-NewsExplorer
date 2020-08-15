@@ -1,0 +1,16 @@
+.header__content {
+  padding: 0 104px;
+  margin: 0;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1290px) {
+    .header__content {
+        padding: 0 40px;
+    }
+}

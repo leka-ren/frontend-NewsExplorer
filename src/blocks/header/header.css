@@ -2,6 +2,7 @@
 @import url("./__link/header__link.css");
 @import url("./__links/header__links.css");
 @import url("./__title/header__title.css");
+@import url("./__content/header__content.css");
 @import url("./__home-link/header__home-link.css");
 @import url("./__authorization-button/header__authorization-button.css");
 
@@ -14,9 +15,6 @@
   width: 100%;
   max-width: 1440px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
   border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
 }
 

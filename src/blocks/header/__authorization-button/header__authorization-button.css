@@ -17,3 +17,15 @@
 .header__authorization-button:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 1280px) {
+  .header__authorization-button {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header__authorization-button {
+    font-size: 18px;
+  }
+}
