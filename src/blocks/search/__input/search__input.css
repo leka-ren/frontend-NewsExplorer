@@ -1,0 +1,21 @@
+.search__input {
+  width: 100%;
+  max-width: 608px;
+  background-color: #fff;
+  border: 1px solid #d1d2d6;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  height: 64px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  outline: none;
+}
+
+.search__input::-webkit-input-placeholder {
+  color: #b6bcbf;
+  opacity: 1;
+}

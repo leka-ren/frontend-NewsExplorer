@@ -13,3 +13,7 @@
   line-height: 24px;
   color: #fff;
 }
+
+.header__authorization-button:hover {
+  cursor: pointer;
+}
