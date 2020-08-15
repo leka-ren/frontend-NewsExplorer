@@ -6,6 +6,7 @@
 @import url("./__authorization-button/header__authorization-button.css");
 
 .header {
+  position: absolute;
   height: 80px;
   margin: 0;
   padding: 0;
@@ -14,7 +15,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+  border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
 }
 
 @media screen and (max-width: 1280px) {
