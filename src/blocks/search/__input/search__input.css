@@ -1,4 +1,6 @@
 .search__input {
+  position: relative;
+  z-index: 0;
   width: 100%;
   max-width: 608px;
   background-color: #fff;
@@ -19,4 +21,8 @@
 .search__input::-webkit-input-placeholder {
   color: #b6bcbf;
   opacity: 1;
+}
+
+.search__input:hover {
+  cursor: text; 
 }
