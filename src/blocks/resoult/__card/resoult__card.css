@@ -7,6 +7,10 @@
   margin: 8px;
 }
 
+.resoult__card:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1410px) {
     .resoult__card {
       width: 300px;

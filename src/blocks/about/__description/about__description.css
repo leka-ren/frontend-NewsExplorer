@@ -1,0 +1,9 @@
+.about__description {
+    margin-left: 56px;
+}
+
+@media screen and (max-width: 642px) {
+    .about__description {
+        margin: 0;
+    }
+}

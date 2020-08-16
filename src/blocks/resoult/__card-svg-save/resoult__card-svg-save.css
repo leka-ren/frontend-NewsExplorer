@@ -5,4 +5,5 @@
 
 .resoult__card-svg-save:hover {
     opacity: 1;
+    cursor: pointer;
 }

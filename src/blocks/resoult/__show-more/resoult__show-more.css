@@ -13,3 +13,7 @@
   color: #1a1b22;
   align-self: center;
 }
+
+.resoult__show-more:hover {
+  cursor: pointer;
+}
