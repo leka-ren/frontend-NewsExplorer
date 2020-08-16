@@ -1,6 +1,7 @@
 @import url("./vendor/fonts.css");
 @import url("./blocks/header/header.css");
 @import url("./blocks/search/search.css");
+@import url("./blocks/resoult/resoult.css");
 
 body {
   padding: 0;

@@ -1,0 +1,16 @@
+.resoult__cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+  margin: 64px 0;
+}
+
+@media screen and (max-width: 1010px) {
+  .resoult__cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

@@ -1,0 +1,18 @@
+@import url("./__card-data/resoult__card-data.css");
+@import url("./__card-image/resoult__card-image.css");
+@import url("./__card-resourse/resoult__card-resourse.css");
+@import url("./__card-text/resoult__card-text.css");
+@import url("./__card-title/resoult__card-title.css");
+@import url("./__card/resoult__card.css");
+@import url("./__cards/resoult__cards.css");
+@import url("./__show-more/resoult__show-more.css");
+@import url("./__title/resoult__title.css");
+@import url("./__card-save-button/resoult__card-save-button.css");
+@import url("./__card-svg-save/resoult__card-svg-save.css");
+@import url("./__content/resoult__content.css");
+@import url("./__card-text-content/resoult__card-text-content.css");
+
+.resoult {
+  width: 100%;
+  background: #F5F6F7;
+}

@@ -1,0 +1,18 @@
+.resoult__card-save-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  background-color: #fff;
+  border-radius: 8px;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .resoult__card-save-button {
+    top: 24px;
+    right: 24px;
+  }
+}

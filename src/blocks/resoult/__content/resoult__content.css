@@ -1,0 +1,11 @@
+.resoult__content {
+  padding: 80px 104px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .resoult__content {
+    padding: 40px;
+  }
+}

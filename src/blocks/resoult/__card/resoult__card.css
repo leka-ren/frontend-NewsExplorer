@@ -1,0 +1,21 @@
+.resoult__card {
+  width: 400px;
+  padding: 0;
+  border-radius: 10px;
+  background: #ffffff;
+  position: relative;
+  margin: 8px;
+}
+
+@media screen and (max-width: 1410px) {
+    .resoult__card {
+      width: 300px;
+    }
+  }
+
+@media screen and (max-width: 1100px) {
+  .resoult__card {
+    width: 224px;
+    margin: 0 8px 8px 0;
+  }
+}
