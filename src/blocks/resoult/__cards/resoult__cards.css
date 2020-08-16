@@ -6,11 +6,11 @@
   margin: 64px 0;
 }
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 730px) {
   .resoult__cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
   }
 }
