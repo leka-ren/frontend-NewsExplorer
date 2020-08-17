@@ -7,3 +7,9 @@
     flex-wrap: nowrap;
     margin: 0;
 }
+
+@media screen and (max-width: 500px) {
+    .header__parameters {
+        display: none;
+    }
+}

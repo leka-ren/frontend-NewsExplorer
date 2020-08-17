@@ -5,6 +5,7 @@
 @import url("./__content/header__content.css");
 @import url("./__home-link/header__home-link.css");
 @import url("./__authorization-button/header__authorization-button.css");
+@import url("./__button-burger/header__button-burger.css");
 
 .header {
   position: absolute;
