@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -167,7 +167,25 @@
                 </div>
             </section>
         </main>
-        <footer class="footer"></footer>
+        <footer class="footer">
+            <div class="footer__content">
+                <p class="footer__copyrigth">&copy; 2020 Supersite, Powered by News API</p>
+                <div class="footer__links">
+                    <ul class="footer__text-links">
+                        <li class="footer__text-link"><a class="footer__link-name" href="./index.html">Главная</a></li>
+                        <li class="footer__text-link"><a class="footer__link-name" href="https://praktikum.yandex.ru">Яндекс.Практикум</a></li>
+                    </ul>
+                    <ul class="footer__icon-links">
+                        <li class="footer__icon-link"><a class="footer__icon" href="https://github.com/leka-ren">
+                                <img src="<%=require('./images/github.svg')%>" alt="иконка-ссылка гитхаб">
+                            </a></li>
+                        <li class="footer__icon-link"><a class="footer__icon" href="#">
+                                <img src="<%=require('./images/facebook.svg')%>" alt="иконка-ссылка фэйсбук">
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </div>
     <script type="module" src='<%= htmlWebpackPlugin.files.js %>'></script>
 </body>

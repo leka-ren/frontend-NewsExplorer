@@ -1,0 +1,6 @@
+.footer__text-links {
+    display: flex;
+    flex-direction: row;
+    padding: 0 20px;
+    margin: 0;
+}

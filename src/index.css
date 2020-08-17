@@ -3,6 +3,7 @@
 @import url("./blocks/search/search.css");
 @import url("./blocks/resoult/resoult.css");
 @import url("./blocks/about/about.css");
+@import url("./blocks/footer/footer.css");
 
 body {
   padding: 0;
