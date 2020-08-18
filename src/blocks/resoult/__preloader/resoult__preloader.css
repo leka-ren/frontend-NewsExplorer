@@ -1,0 +1,7 @@
+.resoult__preloader {
+    display: none;
+    padding: 80px 0;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 300px;
+}

@@ -37,15 +37,13 @@
             <div style="display: none;" class="popup">
                 <div class="popup__content">
                     <img src="<%=require('./images/close.svg')%>" alt="иконка закрытия окна" class="popup__close">
-                    <h3 class="popup__title"></h3>
-                    <form class="popup__form" name="authorized">
-                        <input type="email" name="email" class="popup__input" placeholder="Название" minlength="2"
-                            maxlength="30" required>
+                    <h3 class="popup__title">Вход</h3>
+                    <form class="popup__form" name="authentication">
+                        <input type="email" name="email" class="popup__input" placeholder="Введите почту" required>
                         <span class='popup__valid email up'></span>
-                        <input type="password" name="password" class="popup__input" placeholder="Ссылка на картинку"
-                            pattern="(^https?:\/\/)?[a-z0-9~_\-\.]+\.[a-z]{1,9}[aA-zZ0-9~_\-\./?=&]+" required>
-                        <span class='popup__valid link'></span>
-                        <button type='submit' class="button popup__button" disabled>+</button>
+                        <input type="password" name="password" class="popup__input" placeholder="Введите пароль" required>
+                        <span class='popup__valid password'></span>
+                        <button type='submit' class="button popup__button" disabled>Войти</button>
                     </form>
                 </div>
             </div>
@@ -62,10 +60,14 @@
                 </div>
             </section>
             <section class="resoult">
+                <div class="resoult__preloader">
+                    <i class="resoult__circle-preloader"></i>
+                    <p class="resoult__preloader-text">Идет поиск новостей...</p>
+                </div>
                 <div class="resoult__false">
-                        <img class="resoult__false-img" src="<%=require('./images/not-found.svg')%>">
-                        <h3 class="resoult__false-title">Ничего не найдено</h3>
-                        <p class="resoult__false-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
+                    <img class="resoult__false-img" src="<%=require('./images/not-found.svg')%>">
+                    <h3 class="resoult__false-title">Ничего не найдено</h3>
+                    <p class="resoult__false-subtitle">К сожалению по вашему запросу ничего не найдено.</p>
                 </div>
                 <div class="resoult__good">
                     <div class="resoult__content">

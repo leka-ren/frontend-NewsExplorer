@@ -16,6 +16,9 @@
 @import url("./__false-title/resoult__false-title.css");
 @import url("./__false-subtitle/resoult__false-subtitle.css");
 @import url("./__false-content/resoult__false-content.css");
+@import url("./__preloader/resoult__preloader.css");
+@import url("./__circle-preloader/resoult__circle-preloader.css");
+@import url("./__preloader-text/resoult__preloader-text.css");
 
 .resoult {
   width: 100%;
