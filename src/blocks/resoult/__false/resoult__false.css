@@ -1,0 +1,9 @@
+.resoult__false {
+    display: none;
+    width: 350px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 80px 0;
+}

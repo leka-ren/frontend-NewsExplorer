@@ -11,6 +11,11 @@
 @import url("./__card-svg-save/resoult__card-svg-save.css");
 @import url("./__content/resoult__content.css");
 @import url("./__card-text-content/resoult__card-text-content.css");
+@import url("./__good/resoult__good.css");
+@import url("./__false/resoult__false.css");
+@import url("./__false-title/resoult__false-title.css");
+@import url("./__false-subtitle/resoult__false-subtitle.css");
+@import url("./__false-content/resoult__false-content.css");
 
 .resoult {
   width: 100%;
