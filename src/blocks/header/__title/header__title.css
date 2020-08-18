@@ -6,4 +6,6 @@
   margin: 0;
   align-self: center;
   color: #fff;
+  position: relative;
+  z-index: 5;
 }

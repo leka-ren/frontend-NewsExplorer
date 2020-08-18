@@ -1,12 +1,14 @@
 .header__button-burger {
-    display: none;
-    width: 24px;
-    height: 24px;
-    align-self: center;
+  display: none;
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  position: relative;
+  z-index: 5;
 }
 
 @media screen and (max-width: 500px) {
-    .header__button-burger {
-        display: flex;
-    }
+  .header__button-burger {
+    display: flex;
+  }
 }

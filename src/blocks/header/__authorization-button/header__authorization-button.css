@@ -1,4 +1,5 @@
 .header__authorization-button {
+  
   height: min-content;
   padding: 12px;
   outline: none;
@@ -27,5 +28,8 @@
 @media screen and (max-width: 500px) {
   .header__authorization-button {
     font-size: 18px;
+    width: 95%;
+    align-self: center;
+    text-align: center;
   }
 }

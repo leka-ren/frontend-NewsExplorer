@@ -6,9 +6,10 @@
 @import url("./__home-link/header__home-link.css");
 @import url("./__authorization-button/header__authorization-button.css");
 @import url("./__button-burger/header__button-burger.css");
+@import url("./__burger-param/header__burger-param.css");
 
 .header {
-  position: absolute;
+  position: absolute;/* position: fixed; при открытии бургер меню состояние будет накладыватся через js */
   z-index: 5;
   height: 80px;
   margin: 0;
