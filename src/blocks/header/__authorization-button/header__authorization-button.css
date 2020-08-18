@@ -25,11 +25,12 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 666px) {
   .header__authorization-button {
     font-size: 18px;
     width: 95%;
     align-self: center;
     text-align: center;
+    margin-top: 16px;
   }
 }

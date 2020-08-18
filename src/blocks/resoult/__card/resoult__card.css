@@ -24,7 +24,7 @@
   }
 }
 
-@media screen and (max-width: 499px) {
+@media screen and (max-width: 550px) {
   .resoult__card {
     width: 288px;
     margin-right: 0;

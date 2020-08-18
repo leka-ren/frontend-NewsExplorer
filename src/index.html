@@ -20,7 +20,10 @@
                     <div class="header__parameters">
                         <ul class="header__links">
                             <li class="header__link header__link_active">
-                                <a class="header__home-link" href="#">Главная</a>
+                                <a class="header__page-link active" href="./index.html">Главная</a>
+                            </li>
+                            <li class="header__link">
+                                <a class="header__page-link" href="#">Сохранённые статьи</a>
                             </li>
                         </ul>
                         <!-- кнопка будет перезаполняться через замену контента в js -->
@@ -31,6 +34,19 @@
             </div>
         </header>
         <main class=" content">
+            <div style="display: none;" class="popup">
+                <div class="popup__content">
+                    <img src="<%=require('./images/close.svg')%>" alt="иконка закрытия окна" class="popup__close">
+                    <h3 class="popup__title"></h3>
+                    <form class="popup__form" name="authorized">
+                        <input type="email" name="email" class="popup__input" placeholder="Название" minlength="2" maxlength="30" required>
+                        <span class='popup__valid email up'></span>
+                        <input type="password" name="password" class="popup__input" placeholder="Ссылка на картинку" pattern="(^https?:\/\/)?[a-z0-9~_\-\.]+\.[a-z]{1,9}[aA-zZ0-9~_\-\./?=&]+" required>
+                        <span class='popup__valid link'></span>
+                        <button type='submit' class="button popup__button" disabled>+</button>
+                    </form>
+                </div>
+            </div>
             <section class="search">
                 <div class="search__content">
                     <h1 class="search__title">Что в мире творится?</h1>

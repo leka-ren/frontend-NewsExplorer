@@ -2,7 +2,7 @@
 
 .header__link {
     list-style: none;
-    margin: 0;
+    margin: 0 34px 0 0 ;
     padding: 0;
     height: 100%;
     display: flex;
@@ -10,8 +10,8 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 666px) {
     .header__link {
-        margin: 32px 16px;
+        margin: 16px;
     }
 }

@@ -4,6 +4,7 @@
 @import url("./blocks/resoult/resoult.css");
 @import url("./blocks/about/about.css");
 @import url("./blocks/footer/footer.css");
+@import url("./blocks/active/active.css");
 
 body {
   padding: 0;
