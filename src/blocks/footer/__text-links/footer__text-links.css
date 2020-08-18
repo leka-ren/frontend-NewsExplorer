@@ -4,3 +4,15 @@
     padding: 0 20px;
     margin: 0;
 }
+
+@media screen and (max-width: 1000px) {
+    .footer__text-links {
+        padding: 0;
+    }   
+}
+
+@media screen and (max-width: 600px) {
+    .footer__text-links {
+        flex-direction: column;
+    }
+}

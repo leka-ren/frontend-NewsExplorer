@@ -26,3 +26,9 @@
 .search__input:hover {
   cursor: text; 
 }
+
+@media screen and (max-width: 1000px) {
+  .search__input {
+    height: 56px;
+  }
+}

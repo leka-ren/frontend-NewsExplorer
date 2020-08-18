@@ -22,3 +22,9 @@
 .search__button:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 1000px) {
+  .search__button {
+    height: 56px;
+  }
+}
