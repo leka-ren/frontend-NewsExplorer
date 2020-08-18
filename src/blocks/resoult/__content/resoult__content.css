@@ -9,3 +9,9 @@
     padding: 40px;
   }
 }
+
+@media screen and (max-width: 499px) {
+  .resoult__content {
+    padding: 16px;
+  }
+}

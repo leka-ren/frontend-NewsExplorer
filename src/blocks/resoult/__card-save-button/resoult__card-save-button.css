@@ -16,3 +16,10 @@
     right: 24px;
   }
 }
+
+@media screen and (max-width: 499px) {
+  .resoult__card-save-button {
+    top: 16px;
+    right: 16px;
+  }
+}

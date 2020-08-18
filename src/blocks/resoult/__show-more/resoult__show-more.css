@@ -4,7 +4,7 @@
   height: 64px;
   width: 288px;
   border: none;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -16,4 +16,25 @@
 
 .resoult__show-more:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .resoult__show-more {
+    height: 56px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .resoult__show-more {
+    height: 56px;
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .resoult__show-more {
+    height: 56px;
+    width: 288px;
+  }
 }
