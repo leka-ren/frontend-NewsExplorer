@@ -1,18 +1,10 @@
 .header__authorization-button {
-  
-  height: min-content;
+  display: flex;
+  flex-direction: row;
+  height: max-content;
   padding: 12px;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0);
   border: 1px solid #fff;
-  box-sizing: border-box;
   border-radius: 100px;
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  color: #fff;
 }
 
 .header__authorization-button:hover {
@@ -25,12 +17,12 @@
   }
 }
 
-@media screen and (max-width: 666px) {
+@media screen and (max-width: 500px) {
   .header__authorization-button {
     font-size: 18px;
     width: 95%;
     align-self: center;
     text-align: center;
-    margin-top: 16px;
+    
   }
 }

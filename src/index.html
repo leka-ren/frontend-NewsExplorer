@@ -8,6 +8,7 @@
     <meta name="description" content="Приложение поиска актуальных новостей по теме.">
     <meta name="author" content="Полина Задорожная">
     <title>NewsExplore</title>
+    <link rel="icon" href="<%=require('./images/Group.ico')%>">
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
 
@@ -27,7 +28,10 @@
                             </li>
                         </ul>
                         <!-- кнопка будет перезаполняться через замену контента в js -->
-                        <div class="header__authorization-button">Авторизоваться</div>
+                        <div class="header__authorization-button">
+                            <p class="header__text-btn">Авторизоваться</p>
+                            <!-- <img class="header__icon-btn" src="<%=require('./images/logout.svg')%>"> -->
+                        </div>
                     </div>
                 </div>
                 <img class="header__button-burger" src="<%=require('./images/menu.svg')%>" alt="кнопка вызова меню">
@@ -41,7 +45,8 @@
                     <form class="popup__form" name="authentication">
                         <input type="email" name="email" class="popup__input" placeholder="Введите почту" required>
                         <span class='popup__valid email up'></span>
-                        <input type="password" name="password" class="popup__input" placeholder="Введите пароль" required>
+                        <input type="password" name="password" class="popup__input" placeholder="Введите пароль"
+                            required>
                         <span class='popup__valid password'></span>
                         <button type='submit' class="button popup__button" disabled>Войти</button>
                     </form>
