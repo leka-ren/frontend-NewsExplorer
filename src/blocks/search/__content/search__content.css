@@ -8,3 +8,10 @@
         width: 448px;
     }
 }
+
+@media screen and (max-width: 499px) {
+    .search__content {
+        width: 99%;
+        padding: 0 18px;
+    }
+}
