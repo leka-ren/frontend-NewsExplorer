@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Приложение поиска актуальных новостей по теме.">
+    <meta name="author" content="Полина Задорожная">
+    <title>NewsExplore</title>
+    <link rel="icon" href="<%=require('./images/Group.ico')%>">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__content">
+            <h3 class="header__title">NewsExplorer</h3>
+            <div class="header__burger-param">
+                <div class="header__parameters">
+                    <ul class="header__links">
+                        <li class="header__link header__link_active">
+                            <a class="header__page-link" href="./index.html">Главная</a>
+                        </li>
+                        <li class="header__link">
+                            <a class="header__page-link active" href="./article.html">Сохранённые статьи</a>
+                        </li>
+                    </ul>
+                    <!-- кнопка будет перезаполняться через замену контента в js -->
+                    <div class="header__authorization-button">
+                        <p class="header__text-btn">Авторизоваться</p>
+                        <!-- <img class="header__icon-btn" src="<%=require('./images/logout.svg')%>"> -->
+                    </div>
+                </div>
+            </div>
+            <img class="header__button-burger" src="<%=require('./images/menu.svg')%>" alt="кнопка вызова меню">
+        </div>
+    </header>
+</body>
+
+</html>

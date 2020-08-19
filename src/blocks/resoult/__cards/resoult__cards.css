@@ -4,6 +4,7 @@
   grid-template-columns: repeat(3, 1fr);
   padding: 0;
   margin: 64px 0;
+  transition: all .2s ease;
 }
 
 @media screen and (max-width: 730px) {

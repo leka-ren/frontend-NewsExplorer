@@ -37,7 +37,7 @@
                 <img class="header__button-burger" src="<%=require('./images/menu.svg')%>" alt="кнопка вызова меню">
             </div>
         </header>
-        <main class=" content">
+        <main class="content">
             <div class="popup">
                 <div class="popup__content">
                     <!-- на этапе js реализую на планшетном разрешении закрытие по темной зоне(не помню термин) -->
@@ -54,7 +54,7 @@
                         <input type="password" name="password" class="popup__input" placeholder="Введите пароль"
                             required>
                         <span class='popup__valid password'></span>
-                        <button type='submit' class="popup__button" >Войти</button>
+                        <button type='submit' class="popup__button">Войти</button>
                     </form>
                     <!-- кнопка потому что я буду перерисовывать этот же попап -->
                     <p class="popup__sign">или <button class="popup__sign-button">Зарегистрироваться</button></p>
@@ -87,10 +87,13 @@
                         <h2 class="resoult__title">Результаты поиска</h2>
                         <div class="resoult__cards">
                             <div class="resoult__card">
-                                <button class="resoult__card-save-button">
-                                    <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
-                                        alt="кнопка сохранения статьи">
-                                </button>
+                                <div class="resoult__card-save-content">
+                                    <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
+                                    <button class="resoult__card-save-button">
+                                        <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                                            alt="кнопка сохранения статьи">
+                                    </button>
+                                </div>
                                 <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
                                     alt="Новостное изображение">
                                 <div class="resoult__card-text-content">
@@ -106,10 +109,13 @@
                                 </div>
                             </div>
                             <div class="resoult__card">
-                                <button class="resoult__card-save-button">
-                                    <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
-                                        alt="кнопка сохранения статьи">
-                                </button>
+                                <div class="resoult__card-save-content">
+                                    <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
+                                    <button class="resoult__card-save-button">
+                                        <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                                            alt="кнопка сохранения статьи">
+                                    </button>
+                                </div>
                                 <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
                                     alt="Новостное изображение">
                                 <div class="resoult__card-text-content">
@@ -125,10 +131,13 @@
                                 </div>
                             </div>
                             <div class="resoult__card">
-                                <button class="resoult__card-save-button">
-                                    <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
-                                        alt="кнопка сохранения статьи">
-                                </button>
+                                <div class="resoult__card-save-content">
+                                    <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
+                                    <button class="resoult__card-save-button">
+                                        <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                                            alt="кнопка сохранения статьи">
+                                    </button>
+                                </div>
                                 <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
                                     alt="Новостное изображение">
                                 <div class="resoult__card-text-content">
@@ -144,10 +153,13 @@
                                 </div>
                             </div>
                             <div class="resoult__card">
-                                <button class="resoult__card-save-button">
-                                    <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
-                                        alt="кнопка сохранения статьи">
-                                </button>
+                                <div class="resoult__card-save-content">
+                                    <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
+                                    <button class="resoult__card-save-button">
+                                        <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                                            alt="кнопка сохранения статьи">
+                                    </button>
+                                </div>
                                 <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
                                     alt="Новостное изображение">
                                 <div class="resoult__card-text-content">
@@ -163,10 +175,13 @@
                                 </div>
                             </div>
                             <div class="resoult__card">
-                                <button class="resoult__card-save-button">
-                                    <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
-                                        alt="кнопка сохранения статьи">
-                                </button>
+                                <div class="resoult__card-save-content">
+                                    <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
+                                    <button class="resoult__card-save-button">
+                                        <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                                            alt="кнопка сохранения статьи">
+                                    </button>
+                                </div>
                                 <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
                                     alt="Новостное изображение">
                                 <div class="resoult__card-text-content">
@@ -182,10 +197,13 @@
                                 </div>
                             </div>
                             <div class="resoult__card">
-                                <button class="resoult__card-save-button">
-                                    <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
-                                        alt="кнопка сохранения статьи">
-                                </button>
+                                <div class="resoult__card-save-content">
+                                    <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
+                                    <button class="resoult__card-save-button">
+                                        <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                                            alt="кнопка сохранения статьи">
+                                    </button>
+                                </div>
                                 <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
                                     alt="Новостное изображение">
                                 <div class="resoult__card-text-content">
