@@ -5,6 +5,7 @@
 @import url("./blocks/about/about.css");
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/active/active.css");
+@import url("./blocks/popup/popup.css");
 
 body {
   padding: 0;

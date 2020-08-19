@@ -38,18 +38,26 @@
             </div>
         </header>
         <main class=" content">
-            <div style="display: none;" class="popup">
+            <div class="popup">
                 <div class="popup__content">
+                    <!-- на этапе js реализую на планшетном разрешении закрытие по темной зоне(не помню термин) -->
                     <img src="<%=require('./images/close.svg')%>" alt="иконка закрытия окна" class="popup__close">
                     <h3 class="popup__title">Вход</h3>
                     <form class="popup__form" name="authentication">
+                        <!-- <p class="popup__name-input">Имя</p>
+                        <input type="text" name="text" class="popup__input" placeholder="Введите имя" required>
+                        <span class='popup__valid name'></span> -->
+                        <p class="popup__name-input">Email</p>
                         <input type="email" name="email" class="popup__input" placeholder="Введите почту" required>
-                        <span class='popup__valid email up'></span>
+                        <span class='popup__valid email'></span>
+                        <p class="popup__name-input">Password</p>
                         <input type="password" name="password" class="popup__input" placeholder="Введите пароль"
                             required>
                         <span class='popup__valid password'></span>
-                        <button type='submit' class="button popup__button" disabled>Войти</button>
+                        <button type='submit' class="popup__button" >Войти</button>
                     </form>
+                    <!-- кнопка потому что я буду перерисовывать этот же попап -->
+                    <p class="popup__sign">или <button class="popup__sign-button">Зарегистрироваться</button></p>
                 </div>
             </div>
             <section class="search">
