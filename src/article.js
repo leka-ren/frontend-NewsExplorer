@@ -1,1 +1,1 @@
-import "./pages/articles.css"
+import "./pages/article.css"
