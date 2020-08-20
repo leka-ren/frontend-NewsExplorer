@@ -1,3 +1,5 @@
+@import url("./__authorization-button_black/header__authorization-button_black.css");
+
 .header__authorization-button {
   display: flex;
   flex-direction: row;

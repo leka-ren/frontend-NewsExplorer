@@ -9,6 +9,7 @@
 @import url("./__burger-param/header__burger-param.css");
 @import url("./__text-btn/header__text-btn.css");
 @import url("./__icon-btn/header__icon-btn.css");
+@import url("./_black-border/header_black-border.css");
 
 .header {
   position: absolute;/* position: fixed; при открытии бургер меню состояние будет накладыватся через js, либо я сделаю нормальное бургер меню */

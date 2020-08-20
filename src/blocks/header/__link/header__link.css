@@ -1,17 +1,18 @@
-@import url('./_active/header__link_active.css');
+@import url("./_active/header__link_active.css");
+@import url("./_active-black/_active-black.css");
 
 .header__link {
-    list-style: none;
-    margin: 0 34px 0 0 ;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  list-style: none;
+  margin: 0 34px 0 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media screen and (max-width: 666px) {
-    .header__link {
-        margin: 16px;
-    }
+  .header__link {
+    margin: 16px;
+  }
 }
