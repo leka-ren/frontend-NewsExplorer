@@ -1,0 +1,12 @@
+.resoult__card-save-content {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.resoult__card-save-content:hover .resoult__card-alert-text {
+    opacity: 1;
+  }

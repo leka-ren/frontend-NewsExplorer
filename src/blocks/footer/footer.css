@@ -1,0 +1,15 @@
+@import url("./__copyrigth/footer__copyrigth.css");
+@import url("./__content/footer__content.css");
+@import url("./__links/footer__links.css");
+@import url("./__text-links/footer__text-links.css");
+@import url("./__text-link/footer__text-link.css");
+@import url("./__link-name/footer__link-name.css");
+@import url("./__icon-links/footer__icon-links.css");
+@import url("./__icon-link/footer__icon-link.css");
+@import url("./__icon/footer__icon.css");
+
+.footer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}

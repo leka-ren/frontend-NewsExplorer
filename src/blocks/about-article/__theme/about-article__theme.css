@@ -1,0 +1,14 @@
+.about-article__theme {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 500px) {
+    .about-article__theme {
+        font-size: 14px;
+    }
+}

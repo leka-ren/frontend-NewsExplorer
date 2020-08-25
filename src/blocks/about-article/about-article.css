@@ -1,0 +1,23 @@
+@import url("./__title/about-article__title.css");
+@import url("./__theme/about-article__theme.css");
+@import url("./__count/about-article__count.css");
+
+.about-article {
+    display: flex;
+    flex-direction: column;
+    padding: 90px 0 32px 104px;
+    text-align: left;
+}
+
+@media screen and (max-width: 1024px) {
+    .about-article {
+        padding-left: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about-article {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

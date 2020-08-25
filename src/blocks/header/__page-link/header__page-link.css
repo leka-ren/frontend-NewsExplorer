@@ -1,0 +1,22 @@
+.header__page-link {
+  text-decoration: none;
+  color: #B6BCBF;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__page-link {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 666px) {
+  .header__page-link {
+    font-size: 18px;
+    color: #fff;
+  }
+}

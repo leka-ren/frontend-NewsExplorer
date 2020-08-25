@@ -1,0 +1,17 @@
+.resoult__card-alert-text {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 14.5px 5px;
+  margin: 0 5px;
+  opacity: 0;
+  transition: all .2s ease-in;
+}

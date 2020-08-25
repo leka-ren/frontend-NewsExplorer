@@ -1,0 +1,35 @@
+.resoult__card {
+  width: 400px;
+  padding: 0;
+  border-radius: 10px;
+  background: #ffffff;
+  position: relative;
+  margin: 8px;
+  box-shadow: 0px 0px 0px rgba(14, 26, 57, 0.2);
+  transition: all .2s ease-in;
+}
+
+.resoult__card:hover {
+  cursor: pointer;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+@media screen and (max-width: 1410px) {
+    .resoult__card {
+      width: 300px;
+    }
+  }
+
+@media screen and (max-width: 1100px) {
+  .resoult__card {
+    width: 224px;
+    margin: 0 8px 8px 0;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .resoult__card {
+    width: 288px;
+    margin-right: 0;
+  }
+}

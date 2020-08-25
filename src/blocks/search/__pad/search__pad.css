@@ -1,0 +1,12 @@
+.search__pad {
+    position: relative;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+
+@media screen and (max-width: 499px) {
+    .search__pad {
+        margin: 0;
+    }
+}

@@ -1,0 +1,12 @@
+.header__title {
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  align-self: center;
+  color: #fff;
+  position: relative;
+  z-index: 5;
+  text-decoration: none;
+}
