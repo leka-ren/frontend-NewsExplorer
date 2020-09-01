@@ -27,7 +27,6 @@
                                 <a class="header__page-link" href="./article.html">Сохранённые статьи</a>
                             </li>
                         </ul>
-                        <!-- кнопка будет перезаполняться через замену контента в js -->
                         <div class="header__authorization-button">
                             <p class="header__text-btn">Авторизоваться</p>
                             <!-- <img class="header__icon-btn" src="<%=require('./images/logout.svg')%>" alt="кнопка выхода из профиля"> -->
@@ -40,11 +39,9 @@
         <main class="content">
             <div class="popup">
                 <div class="popup__content">
-                    <!-- на этапе js реализую на планшетном разрешении закрытие по темной зоне(не помню термин) -->
                     <img src="<%=require('./images/close.svg')%>" alt="иконка закрытия окна" class="popup__close">
                     <h3 class="popup__title">Вход</h3>
                     <form id="form" class="popup__form" name="authentication"></form>
-                    <!-- кнопка потому что я буду перерисовывать этот же попап -->
                     <p class="popup__sign">или <button class="popup__sign-button">Зарегистрироваться</button></p>
                 </div>
             </div>
