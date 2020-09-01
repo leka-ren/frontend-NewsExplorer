@@ -7,7 +7,7 @@ export default class PopupShow {
     this._escKey = this._escKey.bind(this);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
-    this.clearForm = this.clearForm.bind(this);
+    this._background = this._background.bind(this);
     this.resetContent = this.resetContent.bind(this);
     this.setEventListener();
   }
@@ -15,6 +15,7 @@ export default class PopupShow {
   open() {
     this.el.classList.add("popup_is-opened");
     document.addEventListener("keydown", this._escKey);
+    this.el.addEventListener("click", this._background);
   }
 
   close() {
@@ -23,16 +24,9 @@ export default class PopupShow {
     this.resetContent();
   }
 
-  clearForm() {
-    while (this.form.firstChild) {
-      this.form.removeChild(this.form.firstChild);
-    }
-  }
-
   resetContent() {
     this.signBtn.textContent = "Зарегистрироваться";
     this.popupTitle.textContent = "Вход";
-    this.clearForm();
   }
 
   setEventListener() {
@@ -43,5 +37,9 @@ export default class PopupShow {
 
   _escKey(event) {
     if (event.key === "Escape") this.close();
+  }
+
+  _background(event) {
+    if (event.target.classList.value === "popup__background") this.close(); 
   }
 }
