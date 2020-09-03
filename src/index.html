@@ -42,19 +42,18 @@
                 <div class="popup__content">
                     <img src="<%=require('./images/close.svg')%>" alt="иконка закрытия окна" class="popup__close">
                     <h3 class="popup__title">Вход</h3>
-                    <form id="form" class="popup__form" name="authentication">
+                    <form id="form" class="popup__form" name="auth">
                         <p id="email" class="popup__name-input">Email</p>
                         <input id="email" type="email" name="email" class="popup__input" placeholder="Введите почту"
                             pattern="[a-zA-Z]{1}([A-Za-z0-9_-])*@[a-zA-Z0-9.-]+\.[a-zA-Z]+" required>
                         <span id="email" class='popup__valid email'></span>
                         <p id="password" class="popup__name-input">Password</p>
                         <input id="password" type="password" name="password" class="popup__input"
-                            placeholder="Введите пароль" minlength=2 maxlength=30 required>
+                            placeholder="Введите пароль" minlength=6 maxlength=30 required>
                         <span id="password" class='popup__valid password'></span>
-                        <span id="submit" class='popup__valid'></span>
                         <button type='submit' class="popup__button" disabled>Войти</button>
                     </form>
-                    <p class="popup__sign">или <button class="popup__sign-button">Зарегистрироваться</button></p>
+                    <p class="popup__sign">или <button id="sign-btn" class="popup__sign-button">Зарегистрироваться</button></p>
                 </div>
             </div>
             <section class="search">

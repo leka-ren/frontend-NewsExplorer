@@ -4,6 +4,7 @@ export default class PopupShow {
     this.popupTitle = this.el.querySelector(".popup__title");
     this.signBtn = this.el.querySelector(".popup__sign-button");
     this.form = popupElement.querySelector("form");
+    this.popBtn = this.form.querySelector("button");
     this._escKey = this._escKey.bind(this);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
@@ -25,6 +26,12 @@ export default class PopupShow {
   }
 
   resetContent() {
+    if (this.el.querySelector("#name")) {
+      this.el.querySelectorAll("#name").forEach((el) => el.remove());
+    };
+    this.form.querySelectorAll("span").forEach((el) => el.textContent = "");
+    this.form.querySelectorAll("input").forEach((el) => el.value = "");
+    this.popBtn.textContent = "Войти"
     this.signBtn.textContent = "Зарегистрироваться";
     this.popupTitle.textContent = "Вход";
   }
@@ -40,6 +47,6 @@ export default class PopupShow {
   }
 
   _background(event) {
-    if (event.target.classList.value === "popup__background") this.close(); 
+    if (event.target.className === "popup__background") this.close(); 
   }
 }
