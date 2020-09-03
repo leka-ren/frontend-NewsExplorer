@@ -5,7 +5,7 @@ import FormValidation from "./js/FormValidator";
 import MainApi from "./js/api/MainApi";
 
 const url = "https://www.api.newsexpo.ml";
-const test = new MainApi(url);
+const test = new MainApi();
 async function sign() {
   await test.signin("kek@lol.com", "qwerty12345");
   test.getUserData();

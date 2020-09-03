@@ -1,14 +1,13 @@
 export default class MainApi {
-  constructor(url) {
+  constructor() {
     this.url = "www.api.newsexpo.ml";
-    // this.url = 'localhost:4242';
-    this.token = 1;
   }
 
   signup() {}
   signin(email, password) {
     return fetch(`https://${this.url}/signin`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -18,9 +17,8 @@ export default class MainApi {
       }),
     })
       .then((res) => {
-        if (res.status === 200) console.log(res)
-        // document.cookie = res.headers.setCookie;
-        // Promise.reject(new Error(`Ошибка: ${res.status}`));
+        if (res.ok) return res.json();
+        Promise.reject(new Error(`Ошибка: ${res.status}`));
       })
       .catch((err) =>
         Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
@@ -29,13 +27,11 @@ export default class MainApi {
   getUserData() {
     return fetch("https://www.api.newsexpo.ml/users/me", {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      credentials: "include",
     })
       .then((res) => {
         if (res.ok) {
-          console.log(Promise.resolve(res.json()));
+          return Promise.resolve(res.json());
         }
         Promise.reject(new Error(`Ошибка сервера: ${res.status}`));
       })
