@@ -3,7 +3,27 @@ export default class MainApi {
     this.url = "www.api.newsexpo.ml";
   }
 
-  signup() {}
+  signup(name, email, password) {
+    return fetch(`https://${this.url}/signup`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        Promise.reject(new Error(`Ошибка: ${res.status}`));
+      })
+      .catch((err) =>
+        Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
+      );
+  }
   signin(email, password) {
     return fetch(`https://${this.url}/signin`, {
       method: "POST",
