@@ -21,12 +21,14 @@ export default class Popup extends Render {
   }
 
   stateFields(signBtnText, titleText, formBtnText) {
-    this.signBtn.textContent = signBtnText;//"Войти";
-    this.popupTitle.textContent = titleText;//"Регистрация";
-    this.formBtn.textContent = formBtnText;//"Зарегистрироваться";
+    this.signBtn.textContent = signBtnText;
+    this.popupTitle.textContent = titleText;
+    this.formBtn.textContent = formBtnText;
   }
 
   removeRegForm(inputGroup) {
     inputGroup.forEach((el) => el.remove());
   }
+
+  clearSpanError() {}
 }

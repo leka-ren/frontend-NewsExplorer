@@ -14,7 +14,7 @@
 
 <body>
     <div class="root">
-        <header class="header">
+        <header id="header" class="header">
             <div class="header__content">
                 <h3 class="header__title">NewsExplorer</h3>
                 <div class="header__burger-param">
@@ -28,8 +28,8 @@
                             </li>
                         </ul>
                         <div id="auth-btn" class="header__authorization-button">
-                            <p class="header__text-btn">Авторизоваться</p>
-                            <!-- <img class="header__icon-btn" src="<%=require('./images/logout.svg')%>" alt="кнопка выхода из профиля"> -->
+                            <p id="auth-btn-text" class="header__text-btn">Авторизоваться</p>
+                            <img id="auth-btn-icon" class="header__icon-btn" src="<%=require('./images/logout.svg')%>" alt="кнопка выхода из профиля">
                         </div>
                     </div>
                 </div>

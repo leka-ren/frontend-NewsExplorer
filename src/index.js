@@ -5,11 +5,12 @@ import FormValidation from "./js/FormValidator";
 import Form from "./js/components/Form";
 import MainApi from "./js/api/MainApi";
 import NewsApi from "./js/api/NewsApi";
-import localStorageU from "./js/utils/localStorageU";
+import Header from "./js/components/Header";
 
 const popup = document.querySelector(".popup");
 const form = popup.querySelector("#form");
 const authText = popup.querySelector("#authorization-text");
+const header = document.querySelector("#header");
 
 const authBtn = document.querySelector("#auth-btn");
 const formBtn = form.querySelector("button");
@@ -25,6 +26,9 @@ const popupShow = new PopupShow(popup);
 const formValidate = new FormValidation(form, formBtn, validateStringError);
 const news = new NewsApi();
 const nameInput = new Popup(popup);
+const headerClass = new Header(header);
+
+console.log(nameInput.signBtn);
 
 function popupOpen(event) {
   if (event.target.textContent === "Авторизоваться") popupShow.open();
@@ -32,9 +36,11 @@ function popupOpen(event) {
 
 function signBtnEvent(event) {
   if (event.target.textContent === "Зарегистрироваться") {
+    popupShow.resetContent();
     nameInput.getRegistredForm();
     nameInput.stateFields("Войти", "Регистрация", "Зарегистрироваться");
   } else if (event.target.textContent === "Войти") {
+    popupShow.resetContent();
     nameInput.removeRegForm(document.querySelectorAll("#name"));
     nameInput.stateFields("Зарегистрироваться", "Вход", "Войти");
   }
@@ -48,14 +54,21 @@ async function getAuth(date) {
     console.log(answer);
     if (answer.status === 200) {
       auth.getUserData().then((res) => {
-        const store = new localStorageU("username", res.data.name);
+        localStorage.setItem("username", res.data.name);
+        popupShow.close();
+        headerClass.getAuthContent();
       });
     }
     if (answer.status === 401) {
       authText.textContent = "Неверный email или пароль";
     }
   } else if (date.name) {
+    const pinForm = form;
+    console.log(pinForm);
     const answer = await auth.signup(date);
+    if (answer.status === 200) {
+        form.remove();
+    }
     if (answer.status === 409) {
       authText.textContent = "Пользователь с таким email уже есть";
     }
