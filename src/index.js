@@ -3,6 +3,10 @@ import PopupShow from "./js/components/PopupShow";
 import Popup from "./js/components/Popup";
 import FormValidation from "./js/FormValidator";
 import MainApi from "./js/api/MainApi";
+import NewsApi from "./js/api/NewsApi";
+
+const news = new NewsApi();
+news.getNews();
 
 const authBtn = document.querySelector("#auth-btn");
 const popup = document.querySelector(".popup");
