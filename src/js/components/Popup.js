@@ -1,11 +1,14 @@
-import Render from "../Render";
+import Render from "./Render";
 
 export default class Popup extends Render {
   constructor(el) {
     super();
-    this.parentEl = el;
+    this.parentEl = el.querySelector("form");
+    this.signBtn = el.querySelector("#sign-btn");
+    this.popupTitle = el.querySelector(".popup__title");
+    this.formBtn = el.querySelector("form button");
     this.getRegistredForm = this.getRegistredForm.bind(this);
-    this.getRegistredForm();
+    this.stateFields = this.stateFields.bind(this);
   }
 
   getRegistredForm() {
@@ -15,5 +18,15 @@ export default class Popup extends Render {
         <span id="name" class='popup__valid name'></span>`;
     this.childEl = formRegistration;
     this.renderAfterBegin();
+  }
+
+  stateFields(signBtnText, titleText, formBtnText) {
+    this.signBtn.textContent = signBtnText;//"Войти";
+    this.popupTitle.textContent = titleText;//"Регистрация";
+    this.formBtn.textContent = formBtnText;//"Зарегистрироваться";
+  }
+
+  removeRegForm(inputGroup) {
+    inputGroup.forEach((el) => el.remove());
   }
 }

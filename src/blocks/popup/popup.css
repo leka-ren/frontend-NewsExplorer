@@ -10,6 +10,7 @@
 @import url("./__sign/popup__sign.css");
 @import url("./__sign-button/popup__sign-button.css");
 @import url("./__background/popup__background.css");
+@import url("./__authorization-text/popup__authorization-text.css");
 
 .popup {
   position: fixed;

@@ -19,13 +19,16 @@ export default class MainApi {
       }),
     })
       .then((res) => {
-        if (res.ok) return res.json();
-        Promise.reject(new Error(`Ошибка: ${res.status}`));
+        if (res.status >= 500) {
+          Promise.reject(new Error(`Ошибка: ${res.status}`));
+        }
+        return res;
       })
       .catch((err) =>
         Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
       );
   }
+
   signin({ email, password }) {
     return fetch(`https://www.api.newsexpo.ml/signin`, {
       method: "POST",
@@ -39,13 +42,16 @@ export default class MainApi {
       }),
     })
       .then((res) => {
-        if (res.ok) return res.json().then(res => res);
-        Promise.reject(new Error(`Ошибка: ${res.status}`));
+        if (res.status >= 500) {
+          Promise.reject(new Error(`Ошибка: ${res.status}`));
+        }
+        return res;
       })
       .catch((err) =>
         Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
       );
   }
+
   getUserData() {
     return fetch("https://www.api.newsexpo.ml/users/me", {
       method: "GET",
@@ -58,7 +64,7 @@ export default class MainApi {
         Promise.reject(new Error(`Ошибка: ${res.status}`));
       })
       .catch((e) =>
-        Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
+        Promise.reject(new Error(`Ошибка соединения: ${e.message}`))
       );
   }
   getArticles() {}
