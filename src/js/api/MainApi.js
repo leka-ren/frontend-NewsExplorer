@@ -1,9 +1,11 @@
 export default class MainApi {
   constructor() {
     this.url = "www.api.newsexpo.ml";
+    this.signin = this.signin.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
-  signup(name, email, password) {
+  signup({ name, email, password }) {
     return fetch(`https://${this.url}/signup`, {
       method: "POST",
       credentials: "include",
@@ -11,9 +13,9 @@ export default class MainApi {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
+        name,
+        email,
+        password,
       }),
     })
       .then((res) => {
@@ -24,20 +26,20 @@ export default class MainApi {
         Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
       );
   }
-  signin(email, password) {
-    return fetch(`https://${this.url}/signin`, {
+  signin({ email, password }) {
+    return fetch(`https://www.api.newsexpo.ml/signin`, {
       method: "POST",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
-        password: password,
+        email,
+        password,
       }),
     })
       .then((res) => {
-        if (res.ok) return res.json();
+        if (res.ok) return res.json().then(res => res);
         Promise.reject(new Error(`Ошибка: ${res.status}`));
       })
       .catch((err) =>
@@ -53,9 +55,11 @@ export default class MainApi {
         if (res.ok) {
           return Promise.resolve(res.json());
         }
-        Promise.reject(new Error(`Ошибка сервера: ${res.status}`));
+        Promise.reject(new Error(`Ошибка: ${res.status}`));
       })
-      .catch((e) => console.log(e));
+      .catch((e) =>
+        Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
+      );
   }
   getArticles() {}
   createArticle() {}

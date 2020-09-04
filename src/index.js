@@ -2,11 +2,9 @@ import "./pages/index.css";
 import PopupShow from "./js/components/PopupShow";
 import Popup from "./js/components/Popup";
 import FormValidation from "./js/FormValidator";
+import Form from "./js/components/Form";
 import MainApi from "./js/api/MainApi";
 import NewsApi from "./js/api/NewsApi";
-
-const news = new NewsApi();
-news.getNews();
 
 const authBtn = document.querySelector("#auth-btn");
 const popup = document.querySelector(".popup");
@@ -22,6 +20,7 @@ const validateStringError = {
 
 const popupShow = new PopupShow(popup);
 const formValidate = new FormValidation(form, formBtn, validateStringError);
+const news = new NewsApi();
 
 function popupOpen(event) {
   popupShow.open();
@@ -41,18 +40,23 @@ function signBtnEvent(event) {
   }
 }
 
-function takeDate(event) {
-  const input = form.querySelectorAll("input");
-  let inputVal = [];
-  event.preventDefault();
-  input.forEach((el) => inputVal.push(el.value));
-  if (input.length === 2) {
-    console.log("signin");
-  } else if (input.length === 3) {
-    console.log("signup");
+//функция которая принимает объект данных, для отправки запрома на авторизацию или регистрацию
+function getAuth(date) {
+  const auth = new MainApi();
+  if (!date.name) {
+    const answer = auth.signin(date);
+    console.log(answer);
+  } else if (date.name) {
+      const answer = auth.signup(date);
   } else {
-    alert("Error");
+      alert("Error!");
   }
+}
+
+function takeDate(event) {
+  event.preventDefault();
+  const input = form.querySelectorAll("input");
+  const formClass = new Form(input, getAuth);
 }
 
 authBtn.addEventListener("click", popupOpen);
