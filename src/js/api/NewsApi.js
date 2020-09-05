@@ -6,11 +6,9 @@ export default class NewsApi {
     this.getNews = this.getNews.bind(this);
   }
   getNews(keyWord, dateMin, dateMax) {
-    dateMin = "2020-08-27";
-    dateMax = "2020-09-02";
-    keyWord = "Природа";
     return fetch(
       `http://${this.url}/v2/everything?q=${keyWord}}&from=${dateMin}&to=${dateMax}&sortBy=date&apiKey=${this.keyNews}`
-    ).then((res) => console.log(res.json()));
+    ).then((res) => Promise.resolve(res.json()))
+    .catch(e => console.log(e));
   }
 }

@@ -1,30 +1,49 @@
-export default class NewsCard {
-  constructor() {}
+import Render from "./Render";
+const imageCard = require("../../images/save.svg");
 
-  renderIcon() {}
+export default class NewsCard extends Render {
+  constructor(el) {
+    super();
+    this.parentEl = el;
+  }
 
-  _createCard() {
+  //renderIcon() {}
+
+  formatDate(dateString) {
+    const date = new Date(dateString);
+    return `${date.toLocaleDateString("ru-RU", {
+      day: "numeric",
+      month: "long",
+    })}, ${date.getFullYear()}`;
+  }
+
+  createCard(dataCard) {
     const card = `
     <div class="resoult__card">
         <div class="resoult__card-save-content">
             <p class="resoult__card-alert-text">Войдите, чтобы сохранять статьи</p>
             <button class="resoult__card-save-button">
-                <img class="resoult__card-svg-save" src="<%=require('./images/save.svg')%>"
+                <img class="resoult__card-svg-save" src="${imageCard}"
                 alt="кнопка сохранения статьи">
             </button>
         </div>
-        <a href="https://lentach.media/" target="_blank">
-            <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
+        <a href="${dataCard.url}" target="_blank">
+            <img class="resoult__card-image" src="${dataCard.urlToImage}"
                 alt="Новостное изображение">
             <div class="resoult__card-text-content">
-                <p class="resoult__card-data">2 августа, 2019</p>
-                <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                <article class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</article>
-                <p class="resoult__card-resourse">Лента.ру</p>
+                <p class="resoult__card-data">${this.formatDate(
+                  dataCard.publishedAt
+                )}</p>
+                <h3 class="resoult__card-title">${dataCard.title}</h3>
+                <article class="resoult__card-text">${
+                  dataCard.description
+                }</article>
+                <p class="resoult__card-resourse">${dataCard.source.name}</p>
             </div>
         </a>
     </div>
     `;
-    return card;
+    this.childEl = card;
+    this.renderBeforeend(this.parentEl, this.childEl);
   }
 }

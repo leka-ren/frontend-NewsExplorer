@@ -19,17 +19,15 @@
                 <h3 class="header__title">NewsExplorer</h3>
                 <div class="header__burger-param">
                     <div class="header__parameters">
-                        <ul class="header__links">
+                        <ul id="ul-links" class="header__links">
                             <li class="header__link header__link_active">
                                 <a class="header__page-link active" href="./index.html">Главная</a>
-                            </li>
-                            <li id="save-articles" class="header__link">
-                                <a class="header__page-link" href="./article.html">Сохранённые статьи</a>
                             </li>
                         </ul>
                         <div id="auth-btn" class="header__authorization-button">
                             <p id="auth-btn-text" class="header__text-btn">Авторизоваться</p>
-                            <img id="auth-btn-icon" class="header__icon-btn" src="<%=require('./images/logout.svg')%>" alt="кнопка выхода из профиля">
+                            <img id="auth-btn-icon" class="header__icon-btn" src="<%=require('./images/logout.svg')%>"
+                                alt="кнопка выхода из профиля">
                         </div>
                     </div>
                 </div>
@@ -54,7 +52,8 @@
                         <span id="authorization-text" class="popup__authorization-text"></span>
                         <button type='submit' class="popup__button" disabled>Войти</button>
                     </form>
-                    <p class="popup__sign">или <button id="sign-btn" class="popup__sign-button">Зарегистрироваться</button></p>
+                    <p class="popup__sign">или <button id="sign-btn"
+                            class="popup__sign-button">Зарегистрироваться</button></p>
                 </div>
             </div>
             <section class="search">
@@ -64,8 +63,8 @@
                         личном
                         кабинете.</p>
                     <div class="search__pad">
-                        <input class="search__input" placeholder="Введите тему новости">
-                        <button class="search__button">Искать</button>
+                        <input id="search-input" class="search__input" placeholder="Введите тему новости">
+                        <button id="search-btn" class="search__button">Искать</button>
                     </div>
                 </div>
             </section>
@@ -83,10 +82,10 @@
                 <div class="resoult__good">
                     <div class="resoult__content">
                         <h2 class="resoult__title">Результаты поиска</h2>
-                        <div class="resoult__cards index">
+                        <div id="cards-list" class="resoult__cards index">
                             <!-- Место для рендера карточек -->
                         </div>
-                        <button class="resoult__show-more">Показать еще</button>
+                        <button id="show-more" class="resoult__show-more">Показать еще</button>
                     </div>
                 </div>
             </section>
@@ -95,10 +94,15 @@
                     <img class="about__avatar" src="<%=require('./images/avatar.jpg')%>" alt="аватарка Патлуха">
                     <div class="about__description">
                         <h2 class="about__title">Об авторе</h2>
-                        <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас
+                        <p class="about__text">Это блок с описанием автора проекта, девушки, которая через боль, пот,
+                            кровь, слезы, ангину и увольнение, делала этот замечательный диплом. Здесь следует указать,
+                            как вас
                             зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-                        <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут
-                            научились, и чем можете помочь потенциальным заказчикам.</p>
+                        <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, как вас
+                            научили сражаться с неверятными трудностями javascript и принять его попытки быть похожим на
+                            нормальный язык, с помощью классов, которые все равно становятся функциями, и чем можете
+                            помочь славным студентам которые только начали свой путь в Практикуме и не знают во что
+                            ввязываются.</p>
                     </div>
                 </div>
             </section>
