@@ -101,7 +101,6 @@ export default class MainApi {
       }),
     })
       .then((res) => {
-        console.log(res);
         if (res.status >= 500) {
           Promise.reject(new Error(`Ошибка: ${res.status}`));
         }

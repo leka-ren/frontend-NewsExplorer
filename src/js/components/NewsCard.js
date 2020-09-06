@@ -1,21 +1,22 @@
 const iconSave = require("../../images/save.svg");
 const iconDelete = require("../../images/trash.svg");
+const blueIconSave = require("../../images/bookmark.svg");
 
 export default class NewsCard {
   constructor(dataCard, keyword, api, icon) {
     this.icon = icon;
     this.dataCard = dataCard;
     this.keyword = keyword;
-    this.date = this.formatDate(this.dataCard.publishedAt);
+    this.date = this._formatDate(this.dataCard.publishedAt);
     this.api = api;
     this.createCard = this.createCard.bind(this);
     this.id = "i" + Math.floor(Math.random() * 42424242);
     this.createCard = this.createCard;
-    this.saveArticle = this.saveArticle.bind(this);
-    this.getObjects = this.getObjects.bind(this);
+    this._actArticle = this._actArticle.bind(this);
+    this._getObjects = this._getObjects.bind(this);
   }
 
-  getObjects() {
+  _getObjects() {
     return {
       keyword: this.keyword,
       title: this.dataCard.title,
@@ -23,11 +24,14 @@ export default class NewsCard {
       date: this.date,
       source: this.dataCard.source.name,
       link: this.dataCard.url,
-      image: this.dataCard.urlToImage,
+      image:
+        this.dataCard.urlToImage === null
+          ? `https://starwarsblog.starwars.com/wp-content/uploads/2020/01/marvel-darth-vader-tall.jpg`
+          : this.dataCard.urlToImage,
     };
   }
 
-  alertIconMessage() {
+  _alertIconMessage() {
     if (localStorage.getItem("username")) {
       return "";
     } else {
@@ -35,20 +39,20 @@ export default class NewsCard {
     }
   }
 
-  iconRender() {
+  _iconRender() {
     const icon = this.icon === "save" ? iconSave : iconDelete;
     return icon;
   }
 
-  renderIcon() {
-    return `${this.alertIconMessage()}
+  _renderIcon() {
+    return `${this._alertIconMessage()}
     <button class="resoult__card-save-button">
-      <img class="resoult__card-svg-save" src="${this.iconRender()}"
+      <img class="resoult__card-svg-save" src="${this._iconRender()}"
       alt="кнопка сохранения статьи">
     </button>`;
   }
 
-  formatDate(dateString) {
+  _formatDate(dateString) {
     const date = new Date(dateString);
     return `${date.toLocaleDateString("ru-RU", {
       day: "numeric",
@@ -57,36 +61,42 @@ export default class NewsCard {
   }
 
   setListener() {
-    if (this.icon === "save") {
-      this.articleCard = document.querySelector(`#${this.id}`);
-      this.saveBtn = this.articleCard.querySelector(
-        ".resoult__card-save-button"
-      );
-      this.saveBtn.addEventListener("click", this.saveArticle);
-    }
+    this.articleCard = document.querySelector(`#${this.id}`);
+    this.saveBtn = this.articleCard.querySelector(".resoult__card-save-button");
+    this.saveBtn.addEventListener("click", this._actArticle);
   }
 
-  saveArticle() {
-    this.api.createArticle(this.getObjects());
+  _actArticle() {
+    if (this.icon === "save") {
+      this.api.createArticle(this._getObjects());
+    } else if (this.icon === "trash" || this.icon === "have") {
+      this.api.removeArticle(this.dataCard._id);
+      this.saveBtn.removeEventListener("click", this._actArticle);
+      this.articleCard.remove();
+    }
   }
 
   createCard() {
     const card = `
     <div id=${this.id} class="resoult__card">
         <div class="resoult__card-save-content">
-            ${this.renderIcon()}
+            ${this._renderIcon()}
         </div>
-        <a href="${this.dataCard.url}" target="_blank">
-            <img class="resoult__card-image" src=${this.dataCard.urlToImage === null ? `https://starwarsblog.starwars.com/wp-content/uploads/2020/01/marvel-darth-vader-tall.jpg` : this.dataCard.urlToImage}
+        <a href="${this.dataCard.url || this.dataCard.link}" target="_blank">
+            <img class="resoult__card-image" src=${
+              this.dataCard.urlToImage || this.dataCard.image
+            }
                 alt="Новостное изображение">
             <div class="resoult__card-text-content">
-                <p class="resoult__card-data">${this.date}</p>
+                <p class="resoult__card-data">${
+                  this.date || this.dataCard.date
+                }</p>
                 <h3 class="resoult__card-title">${this.dataCard.title}</h3>
                 <article class="resoult__card-text">${
-                  this.dataCard.description
+                  this.dataCard.description || this.dataCard.text
                 }</article>
                 <p class="resoult__card-resourse">${
-                  this.dataCard.source.name
+                  this.dataCard.source.name || this.dataCard.source
                 }</p>
             </div>
         </a>

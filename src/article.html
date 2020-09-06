@@ -27,11 +27,10 @@
                                 <a class="header__page-link active-black" href="./article.html">Сохранённые статьи</a>
                             </li>
                         </ul>
-                        <!-- кнопка будет перезаполняться через замену контента в js -->
                         <div class="header__authorization-button header__authorization-button_black">
-                            <p class="header__text-btn black-theme">Грета</p>
-                            <img class="header__icon-btn" src="<%=require('./images/logout-black.svg')%>"
-                                alt="кнопка выхода из профиля">
+                            <p id="user-name" class="header__text-btn black-theme"></p>
+                            <img id="logout-icon" class="header__icon-btn"
+                                src="<%=require('./images/logout-black.svg')%>" alt="кнопка выхода из профиля">
                         </div>
                     </div>
                 </div>
@@ -41,158 +40,14 @@
         </header>
         <section class="about-article">
             <h4 class="about-article__title">Сохранённые статьи</h4>
-            <p class="about-article__count">Грета, у вас 5 сохранённых статей</p>
-            <p class="about-article__theme">По ключевым словам: <span class="bold">Природа, Тайга и 2 другим </span></p>
+            <p id="user-count" class="about-article__count">Грета, у вас 5 сохранённых статей</p>
+            <p class="about-article__theme">По ключевым словам: <span id="theme" class="bold">Природа, Тайга и 2 другим
+                </span></p>
         </section>
         <section class="resoult">
-            <div class="resoult__good">
+            <div id="cards-list-art" class="resoult__good">
                 <div class="resoult__content">
-                    <div class="resoult__cards index">
-                        <div class="resoult__card">
-                            <a href="https://lentach.media/" target="_blank">
-                                <div class="resoult__card-save-content">
-                                    <p class="resoult__card-alert-text">Убрать из сохранённых</p>
-                                    <button class="resoult__card-save-button">
-                                        <img class="resoult__card-svg-save" src="<%=require('./images/trash.svg')%>"
-                                            alt="кнопка удаления статьи">
-                                    </button>
-                                </div>
-                                <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
-                                    alt="Новостное изображение">
-                                <div class="resoult__card-text-content">
-                                    <p class="resoult__card-data">2 августа, 2019</p>
-                                    <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                                    <p class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет
-                                        назад
-                                        здесь
-                                        начала складываться система национальных парков – охраняемых территорий, где и
-                                        сегодня
-                                        каждый может приобщиться к природе.</p>
-                                    <p class="resoult__card-resourse">Лента.ру</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="resoult__card">
-                            <a href="https://lentach.media/" target="_blank">
-                                <div class="resoult__card-save-content">
-                                    <p class="resoult__card-alert-text">Убрать из сохранённых</p>
-                                    <button class="resoult__card-save-button">
-                                        <img class="resoult__card-svg-save" src="<%=require('./images/trash.svg')%>"
-                                            alt="кнопка удаления статьи">
-                                    </button>
-                                </div>
-                                <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
-                                    alt="Новостное изображение">
-                                <div class="resoult__card-text-content">
-                                    <p class="resoult__card-data">2 августа, 2019</p>
-                                    <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                                    <p class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет
-                                        назад
-                                        здесь
-                                        начала складываться система национальных парков – охраняемых территорий, где и
-                                        сегодня
-                                        каждый может приобщиться к природе.</p>
-                                    <p class="resoult__card-resourse">Лента.ру</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="resoult__card">
-                            <a href="https://lentach.media/" target="_blank">
-                                <div class="resoult__card-save-content">
-                                    <p class="resoult__card-alert-text">Убрать из сохранённых</p>
-                                    <button class="resoult__card-save-button">
-                                        <img class="resoult__card-svg-save" src="<%=require('./images/trash.svg')%>"
-                                            alt="кнопка удаления статьи">
-                                    </button>
-                                </div>
-                                <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
-                                    alt="Новостное изображение">
-                                <div class="resoult__card-text-content">
-                                    <p class="resoult__card-data">2 августа, 2019</p>
-                                    <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                                    <p class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет
-                                        назад
-                                        здесь
-                                        начала складываться система национальных парков – охраняемых территорий, где и
-                                        сегодня
-                                        каждый может приобщиться к природе.</p>
-                                    <p class="resoult__card-resourse">Лента.ру</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="resoult__card">
-                            <a href="https://lentach.media/" target="_blank">
-                                <div class="resoult__card-save-content">
-                                    <p class="resoult__card-alert-text">Убрать из сохранённых</p>
-                                    <button class="resoult__card-save-button">
-                                        <img class="resoult__card-svg-save" src="<%=require('./images/trash.svg')%>"
-                                            alt="кнопка удаления статьи">
-                                    </button>
-                                </div>
-                                <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
-                                    alt="Новостное изображение">
-                                <div class="resoult__card-text-content">
-                                    <p class="resoult__card-data">2 августа, 2019</p>
-                                    <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                                    <p class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет
-                                        назад
-                                        здесь
-                                        начала складываться система национальных парков – охраняемых территорий, где и
-                                        сегодня
-                                        каждый может приобщиться к природе.</p>
-                                    <p class="resoult__card-resourse">Лента.ру</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="resoult__card">
-                            <a href="https://lentach.media/" target="_blank">
-                                <div class="resoult__card-save-content">
-                                    <p class="resoult__card-alert-text">Убрать из сохранённых</p>
-                                    <button class="resoult__card-save-button">
-                                        <img class="resoult__card-svg-save" src="<%=require('./images/trash.svg')%>"
-                                            alt="кнопка удаления статьи">
-                                    </button>
-                                </div>
-                                <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
-                                    alt="Новостное изображение">
-                                <div class="resoult__card-text-content">
-                                    <p class="resoult__card-data">2 августа, 2019</p>
-                                    <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                                    <p class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет
-                                        назад
-                                        здесь
-                                        начала складываться система национальных парков – охраняемых территорий, где и
-                                        сегодня
-                                        каждый может приобщиться к природе.</p>
-                                    <p class="resoult__card-resourse">Лента.ру</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="resoult__card">
-                            <a href="https://lentach.media/" target="_blank">
-                                <div class="resoult__card-save-content">
-                                    <p class="resoult__card-alert-text">Убрать из сохранённых</p>
-                                    <button class="resoult__card-save-button">
-                                        <img class="resoult__card-svg-save" src="<%=require('./images/trash.svg')%>"
-                                            alt="кнопка удаления статьи">
-                                    </button>
-                                </div>
-                                <img class="resoult__card-image" src="<%=require('./images/card.jpg')%>"
-                                    alt="Новостное изображение">
-                                <div class="resoult__card-text-content">
-                                    <p class="resoult__card-data">2 августа, 2019</p>
-                                    <h3 class="resoult__card-title">Национальное достояние – парки</h3>
-                                    <p class="resoult__card-text">В 2016 году Америка отмечала важный юбилей: сто лет
-                                        назад
-                                        здесь
-                                        начала складываться система национальных парков – охраняемых территорий, где и
-                                        сегодня
-                                        каждый может приобщиться к природе.</p>
-                                    <p class="resoult__card-resourse">Лента.ру</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <div id="cards-container" class="resoult__cards"></div>
                 </div>
             </div>
         </section>
@@ -219,6 +74,8 @@
             </div>
         </footer>
     </div>
+    <script src="<%= htmlWebpackPlugin.files.js %>"></script>
+</body>
 </body>
 
 </html>
