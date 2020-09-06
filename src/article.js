@@ -34,7 +34,6 @@ articles
   .then((res) => {
     renderArticles(res.data);
     const infoArticles = new InfoArticles(userInformCount, theme, res.data);
-    infoArticles.getCount();
   })
   .catch((err) => console.log(err));
 
