@@ -2,12 +2,11 @@ import "./pages/index.css";
 import PopupShow from "./js/components/PopupShow";
 import Popup from "./js/components/Popup";
 import FormValidation from "./js/FormValidator";
-import FormDate from "./js/components/FormDate";
+import FormData from "./js/components/FormData";
 import MainApi from "./js/api/MainApi";
 import NewsApi from "./js/api/NewsApi";
 import Header from "./js/components/Header";
 import NewsCard from "./js/components/NewsCard";
-import NewsCardList from "./js/components/NewsCardList";
 
 const popup = document.querySelector(".popup");
 const form = popup.querySelector("#form");
@@ -17,6 +16,7 @@ const header = document.querySelector("#header");
 const authBtn = document.querySelector("#auth-btn");
 const formBtn = form.querySelector("button");
 const signBtn = popup.querySelector("#sign-btn");
+const burgerBtn = document.querySelector("#burger-btn");
 
 const searchInput = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-btn");
@@ -39,6 +39,11 @@ const news = new NewsApi();
 const nameInput = new Popup(popup);
 const headerClass = new Header(header);
 const newsCardMaker = new NewsCard(cardsContainer);
+
+/// переменные для отрисовки по кнопке showMore
+let newsList = [];
+let i = 0;
+///
 
 function authBtnEvent(event) {
   if (event.target.textContent === "Авторизоваться") popupShow.open();
@@ -77,7 +82,8 @@ async function getAuth(date) {
   } else if (date.name) {
     const answer = await auth.signup(date);
     if (answer.status === 200) {
-      form.remove();
+      //form.remove();
+      console.log("kek");
     }
     if (answer.status === 409) {
       authText.textContent = "Пользователь с таким email уже есть";
@@ -104,13 +110,21 @@ function leftPad(num) {
 function takeData(event) {
   event.preventDefault();
   const input = form.querySelectorAll("input");
-  const formClass = new FormDate(input, getAuth);
+  const formClass = new FormData(input, getAuth);
 }
 
-let firstFound = 1;
+function clearCardList() {
+  document.querySelectorAll(".resoult__card").forEach((el) => el.remove());
+  newsList = [];
+}
 
 function requestNews() {
-  preloader.style = "display: flex";
+  i = 0;
+  if (cardsContainer.children.length !== 0) {
+    clearCardList();
+  }
+  preloader.style.display = "flex";
+  resoultArticlesBlock.style.display = "none";
   news
     .getNews(searchInput.value, formatDate(today), formatDate(weekBefore))
     .then((res) => {
@@ -127,9 +141,6 @@ function requestNews() {
     });
 }
 
-let newsList = [];
-let i = 0;
-
 function showArticle(news) {
   if (newsList.length === 0) {
     newsList = news;
@@ -144,9 +155,18 @@ function showArticle(news) {
   }
 }
 
+const burgerMenu = document.querySelector(".header__burger-param");
+
+function burgerShow() {
+  console.log("click");
+  burgerMenu.style.display = "flex";
+
+}
+
 authBtn.addEventListener("click", authBtnEvent);
 signBtn.addEventListener("click", signBtnEvent);
 formValidate.setEventListeners();
 formBtn.addEventListener("click", takeData);
 searchBtn.addEventListener("click", requestNews);
 showMoreBtn.addEventListener("click", showArticle);
+burgerBtn.addEventListener("click", burgerShow);

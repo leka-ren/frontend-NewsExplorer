@@ -26,9 +26,4 @@ export default class Popup extends Render {
     this.formBtn.textContent = formBtnText;
   }
 
-  removeRegForm(inputGroup) {
-    inputGroup.forEach((el) => el.remove());
-  }
-
-  clearSpanError() {}
 }

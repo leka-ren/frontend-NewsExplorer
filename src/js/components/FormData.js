@@ -1,5 +1,5 @@
 //класс отвечает за сбор информации из полец инпут, вся остальная логика вынесена в отдельный класс
-export default class Form {
+export default class FormData {
   constructor(input, getAuth) {
     this.input = input;
     this._getInfo = this._getInfo.bind(this);
