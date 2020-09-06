@@ -24,7 +24,7 @@ const articles = apiCards.getArticles();
 function renderArticles(articles) {
   let articlesList = [];
   for (let el of articles) {
-    const createdArticles = new NewsCard(el, "", apiCards, "trash");
+    const createdArticles = new NewsCard(el, "", apiCards, "trash", "article");
     articlesList.push(createdArticles);
   }
   newsCardList.renderResults(articlesList);
@@ -33,7 +33,7 @@ function renderArticles(articles) {
 articles
   .then((res) => {
     renderArticles(res.data);
-    const infoArticles = new InfoArticles(userInformCount, theme, res.data);
+    new InfoArticles(userInformCount, theme, res.data);
   })
   .catch((err) => console.log(err));
 

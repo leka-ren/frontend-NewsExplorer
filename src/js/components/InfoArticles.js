@@ -6,17 +6,30 @@ export default class InfoArticles {
         this.theme = theme;
         this._getCount();
         this._getTheme();
-        this._sortTheme = this._sortTheme.bind(this);
+        this._uniqTheme = this._uniqTheme.bind(this);
     }
 
-    _sortTheme() {
+    _sort(inputArray) {
+        const frequency = inputArray.reduce((acc, word) => {
+            acc[word] ? acc[word]++ : acc[word] = 1;
+            return acc
+        }, {});
+    
+        return Object.entries(frequency)
+            .sort((a, b) => b[1] - a[1])
+            .map(arr => arr[0]);
+    }
+    
+
+    _uniqTheme() {
         let keyword = this.articles.map((el) => el.keyword);
-        keyword = Array.from(new Set(keyword));
+        let themeSort = this._sort(keyword);
+        keyword = Array.from(new Set(themeSort));
         return keyword.join(', ');
     }
 
     _getTheme() {
-        this.theme.textContent = this._sortTheme();
+        this.theme.textContent = this._uniqTheme();
     }
     
     _getCount() {

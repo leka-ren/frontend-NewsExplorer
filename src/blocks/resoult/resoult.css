@@ -20,6 +20,7 @@
 @import url("./__preloader-text/resoult__preloader-text.css");
 @import url("./__card-save-content/resoult__card-save-content.css");
 @import url("./__card-alert-text/resoult__card-alert-text.css");
+@import url("./__card-theme-content/resoult__card-theme-content.css");
 
 .resoult {
   width: 100%;

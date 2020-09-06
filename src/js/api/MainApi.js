@@ -104,7 +104,7 @@ export default class MainApi {
         if (res.status >= 500) {
           Promise.reject(new Error(`Ошибка: ${res.status}`));
         }
-        return res;
+        return Promise.resolve(res.json());
       })
       .catch((err) =>
         Promise.reject(new Error(`Ошибка соединения: ${err.message}`))

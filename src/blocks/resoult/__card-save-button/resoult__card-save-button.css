@@ -6,17 +6,3 @@
   width: 40px;
   align-items: center;
 }
-
-@media screen and (max-width: 1024px) {
-  .resoult__card-save-button {
-    top: 24px;
-    right: 24px;
-  }
-}
-
-@media screen and (max-width: 499px) {
-  .resoult__card-save-button {
-    top: 16px;
-    right: 16px;
-  }
-}

@@ -1,7 +1,7 @@
 import "./pages/index.css";
 import PopupShow from "./js/components/PopupShow";
 import Popup from "./js/components/Popup";
-import FormValidation from "./js/FormValidator";
+import FormValidation from "./js/components/FormValidator";
 import FormData from "./js/components/FormData";
 import MainApi from "./js/api/MainApi";
 import NewsApi from "./js/api/NewsApi";
@@ -10,7 +10,10 @@ import NewsCard from "./js/components/NewsCard";
 import NewsCardList from "./js/components/NewsCardList";
 
 const body = document.querySelector("body");
+const burgerMenu = document.querySelector(".header__burger-param");
 const popup = document.querySelector(".popup");
+const successful = document.querySelector(".successful");
+const popupSubAuth = document.querySelector(".popup__subtitle");
 const form = popup.querySelector("#form");
 const authText = popup.querySelector("#authorization-text");
 const header = document.querySelector("#header");
@@ -88,8 +91,8 @@ async function getAuth(date) {
   } else if (date.name) {
     const answer = await authApi.signup(date);
     if (answer.status === 200) {
-      //form.remove();
-      console.log("kek");
+      popupShow.close();
+      toggleSuccessful();
     }
     if (answer.status === 409) {
       authText.textContent = "Пользователь с таким email уже есть";
@@ -169,12 +172,20 @@ function showArticle(news) {
   articleListRender.renderResults(articlesCard);
 }
 
-const burgerMenu = document.querySelector(".header__burger-param");
-
 function burgerShow() {
   burgerMenu.classList.toggle("active");
   body.classList.toggle("fixed");
   popupShow.close();
+
+}
+
+function toggleSuccessful() {
+  successful.classList.toggle("popup_is-opened");
+}
+
+function openAuth() {
+  popupShow.open();
+  toggleSuccessful();
 }
 
 authBtn.addEventListener("click", authBtnEvent);
@@ -184,3 +195,4 @@ formBtn.addEventListener("click", takeData);
 searchBtn.addEventListener("click", requestNews);
 showMoreBtn.addEventListener("click", showArticle);
 burgerBtn.addEventListener("click", burgerShow);
+popupSubAuth.addEventListener("click", openAuth);

@@ -1,0 +1,29 @@
+.resoult__card-theme-content {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: #fff;
+  color: #000;
+  padding: 8px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .resoult__card-theme-content {
+    top: 16px;
+    left: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .resoult__card-theme-content {
+    top: 8px;
+    left: 8px;
+  }
+}
