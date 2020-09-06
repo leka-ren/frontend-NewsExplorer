@@ -7,7 +7,9 @@ import MainApi from "./js/api/MainApi";
 import NewsApi from "./js/api/NewsApi";
 import Header from "./js/components/Header";
 import NewsCard from "./js/components/NewsCard";
+import NewsCardList from "./js/components/NewsCardList";
 
+const body = document.querySelector("body");
 const popup = document.querySelector(".popup");
 const form = popup.querySelector("#form");
 const authText = popup.querySelector("#authorization-text");
@@ -38,12 +40,18 @@ const formValidate = new FormValidation(form, formBtn, validateStringError);
 const news = new NewsApi();
 const nameInput = new Popup(popup);
 const headerClass = new Header(header);
-const newsCardMaker = new NewsCard(cardsContainer);
+const articleListRender = new NewsCardList(cardsContainer);
+const authApi = new MainApi();
 
 /// переменные для отрисовки по кнопке showMore
 let newsList = [];
 let i = 0;
 ///
+
+function firstLoad() {
+  localStorage.getItem("username") ? headerClass.getAuthContent() : 0;
+}
+firstLoad();
 
 function authBtnEvent(event) {
   if (event.target.textContent === "Авторизоваться") popupShow.open();
@@ -63,14 +71,12 @@ function signBtnEvent(event) {
     nameInput.stateFields("Зарегистрироваться", "Вход", "Войти");
   }
 }
-
 //функция которая принимает объект данных, для отправки запроcа на авторизацию или регистрацию
 async function getAuth(date) {
-  const auth = new MainApi();
   if (!date.name) {
-    const answer = await auth.signin(date);
+    const answer = await authApi.signin(date);
     if (answer.status === 200) {
-      auth.getUserData().then((res) => {
+      authApi.getUserData().then((res) => {
         localStorage.setItem("username", res.data.name);
         popupShow.close();
         headerClass.getAuthContent();
@@ -80,7 +86,7 @@ async function getAuth(date) {
       authText.textContent = "Неверный email или пароль";
     }
   } else if (date.name) {
-    const answer = await auth.signup(date);
+    const answer = await authApi.signup(date);
     if (answer.status === 200) {
       //form.remove();
       console.log("kek");
@@ -142,6 +148,7 @@ function requestNews() {
 }
 
 function showArticle(news) {
+  const articlesCard = [];
   if (newsList.length === 0) {
     newsList = news;
   }
@@ -151,16 +158,23 @@ function showArticle(news) {
     count += 1;
   }
   for (i; i < count && i <= newsList.length - 1; i++) {
-    newsCardMaker.createCard(newsList[i]);
+    const createBaseCard = new NewsCard(
+      newsList[i],
+      searchInput.value,
+      authApi,
+      "save"
+    ); //значение из инпута, для заполнения keyword
+    articlesCard.push(createBaseCard);
   }
+  articleListRender.renderResults(articlesCard);
 }
 
 const burgerMenu = document.querySelector(".header__burger-param");
 
 function burgerShow() {
-  console.log("click");
-  burgerMenu.style.display = "flex";
-
+  burgerMenu.classList.toggle("active");
+  body.classList.toggle("fixed");
+  popupShow.close();
 }
 
 authBtn.addEventListener("click", authBtnEvent);

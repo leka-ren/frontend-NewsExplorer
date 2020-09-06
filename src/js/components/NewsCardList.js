@@ -1,7 +1,15 @@
-export default class NewsCardList {
-  constructor() {}
+import Render from "./Render";
 
-  renderResults() {}
+export default class NewsCardList extends Render{
+  constructor(parentEl) {
+    super();
+    this.parentEl = parentEl;
+    this.addCard = this.addCard.bind(this);
+  }
+
+  renderResults(elements) {
+    elements.forEach((el) => this.addCard(el));
+  }
 
   renderLoader() {}
 
@@ -9,7 +17,11 @@ export default class NewsCardList {
 
   showMore() {}
 
-  addCard() {}
+  addCard(articleEl) {
+    this.childEl = articleEl.createCard();
+    this.renderBeforeend();
+    articleEl.setListener();
+  }
   
-  _setHandlers(){}
+  _setHandlers() {}
 }

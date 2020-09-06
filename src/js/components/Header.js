@@ -14,23 +14,24 @@ export default class Header extends Render {
   }
 
   getArticlesLink() {
-      const liArticles = '<li id="save-articles" class="header__link"><a class="header__page-link" href="./article.html">Сохранённые статьи</a></li>';
-      this.childEl = liArticles;
-      this.parentEl = this.navList;
-      this.renderBeforeend();
+    const liArticles =
+      '<li id="save-articles" class="header__link"><a class="header__page-link" href="./article.html">Сохранённые статьи</a></li>';
+    this.childEl = liArticles;
+    this.parentEl = this.navList;
+    this.renderBeforeend();
   }
 
   getAuthContent() {
-    this.btnIcon.style = "display: flex";
-    this.btnText.textContent = localStorage.getItem("username");
-    this.getArticlesLink();
+      this.btnIcon.style = "display: flex";
+      this.btnText.textContent = localStorage.getItem("username");
+      this.getArticlesLink();
   }
 
   logout() {
-      this.btnText.textContent = "Авторизоваться";
-      const saveArticlesLink = this.el.querySelector("#save-articles");
-      this.btnIcon.style = "display: none";
-      saveArticlesLink.remove();
-      localStorage.clear();
+    this.btnText.textContent = "Авторизоваться";
+    const saveArticlesLink = this.el.querySelector("#save-articles");
+    this.btnIcon.style = "display: none";
+    saveArticlesLink.remove();
+    localStorage.clear();
   }
 }
