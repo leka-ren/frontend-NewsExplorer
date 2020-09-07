@@ -22,7 +22,7 @@ export default class InfoArticles {
 
   _uniqTheme() {
     let keyword = this.articles.map((el) => el.keyword);
-    let themeSort = this._sort(keyword);
+    const themeSort = this._sort(keyword);
     keyword = Array.from(new Set(themeSort));
     return keyword;
   }

@@ -19,6 +19,7 @@ export default class NewsCard {
     this._getObjects = this._getObjects.bind(this);
     this._themeShow = this._themeShow.bind(this);
     this._getId = this._getId.bind(this);
+    this._remove = this._remove.bind(this);
   }
 
   _getObjects() {
@@ -76,27 +77,51 @@ export default class NewsCard {
   }
 
   _actArticle() {
-    let icon = this.saveBtn.querySelector(".resoult__card-svg-save");
-    let urlIcon = icon.src.slice(22);
+    const icon = this.saveBtn.querySelector(".resoult__card-svg-save");
+    const urlIcon = icon.src.slice(22);
     if (this.icon === "save" && urlIcon != blueIconSave) {
-      if (urlIcon === blueIconSave) {
-        icon.src = iconSave;
-      } else {
-        this.api
-          .createArticle(this._getObjects())
-          .then((res) => this._getId(res.data._id));
-        console.log(this.idRemove);
-        icon.src = blueIconSave;
-      }
+      this.api
+        .createArticle(this._getObjects())
+        .then((res) => {
+          if (res.data) {
+            this._getId(res.data._id);
+            icon.src = blueIconSave;
+          } else {
+            alert("Не удалось сохранить карточку");
+          }
+        })
+        .catch((e) => {
+          alert("Не удалось сохранить карточку");
+        });
     } else if (this.icon === "trash" || urlIcon === blueIconSave) {
       if (this.dataCard._id) {
-        this.api.removeArticle(this.dataCard._id);
-        this.saveBtn.removeEventListener("click", this._actArticle);
-        this.articleCard.remove();
+        this.api
+          .removeArticle(this.dataCard._id)
+          .then((res) => {
+            if (res.ok) {
+              this._remove();
+            } else if (res.status === 404) {
+              alert("Карточка с таким id на сервере не найдена");
+            }
+          })
+          .catch((e) => alert("Не удалось удалить карточку"));
       } else {
-        this.api.removeArticle(this.idRemove).then((res) => console.log(res));
+        this.api
+          .removeArticle(this.idRemove)
+          .then((res) => {
+            if (res.status === 404) alert("Не удалось удалить карточку");
+            if (res.status === 200 && urlIcon === blueIconSave) {
+              icon.src = iconSave;
+            }
+          })
+          .catch((e) => alert("Не удалось удалить карточку"));
       }
     }
+  }
+
+  _remove() {
+    this.saveBtn.removeEventListener("click", this._actArticle);
+    this.articleCard.remove();
   }
 
   _themeShow() {

@@ -31,7 +31,8 @@
                         </div>
                     </div>
                 </div>
-                <img id="burger-btn" class="header__button-burger" src="<%=require('./images/menu.svg')%>" alt="кнопка вызова меню">
+                <img id="burger-btn" class="header__button-burger" src="<%=require('./images/menu.svg')%>"
+                    alt="кнопка вызова меню">
             </div>
         </header>
         <main class="content">
@@ -50,7 +51,7 @@
                             placeholder="Введите пароль" minlength=8 maxlength=30 required>
                         <span id="password" class='popup__valid password'></span>
                         <span id="authorization-text" class="popup__authorization-text"></span>
-                        <button type='submit' class="popup__button" disabled>Войти</button>
+                        <button id="form-btm" type='submit' class="popup__button" disabled>Войти</button>
                     </form>
                     <p class="popup__sign">или <button id="sign-btn"
                             class="popup__sign-button">Зарегистрироваться</button></p>
@@ -71,8 +72,9 @@
                         личном
                         кабинете.</p>
                     <div class="search__pad">
-                        <input id="search-input" class="search__input" placeholder="Введите тему новости">
+                        <input id="search-input" class="search__input" placeholder="Введите тему новости" required>
                         <button id="search-btn" class="search__button">Искать</button>
+                        <span id="input-error" class="search__input-error"></span>
                     </div>
                 </div>
             </section>

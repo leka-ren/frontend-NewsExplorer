@@ -8,6 +8,7 @@ import NewsApi from "./js/api/NewsApi";
 import Header from "./js/components/Header";
 import NewsCard from "./js/components/NewsCard";
 import NewsCardList from "./js/components/NewsCardList";
+import FormRequestState from "./js/components/FormRequestState";
 
 const body = document.querySelector("body");
 const burgerMenu = document.querySelector(".header__burger-param");
@@ -19,13 +20,14 @@ const authText = popup.querySelector("#authorization-text");
 const header = document.querySelector("#header");
 
 const authBtn = document.querySelector("#auth-btn");
-const formBtn = form.querySelector("button");
+const formBtn = document.querySelector("#form-btm");
 const signBtn = popup.querySelector("#sign-btn");
 const burgerBtn = document.querySelector("#burger-btn");
 
 const searchInput = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-btn");
 const showMoreBtn = document.querySelector("#show-more");
+const inputError = document.querySelector("#input-error");
 const cardsContainer = document.querySelector("#cards-list");
 
 const preloader = document.querySelector(".resoult__preloader");
@@ -36,28 +38,30 @@ const validateStringError = {
   validationAbsenceRU: "Обязательное поле",
   validationLenghtRU: "Должно быть от 2 до 30 символов",
   validationMailRU: "Неправильный формат email",
+  validatiobSearchInputRU: "Запрос не может быть пустым",
 };
+
+const headerClass = new Header(header);
+localStorage.getItem("username") ? headerClass.getAuthContent() : 0;
+
+const authApi = new MainApi();
+const news = new NewsApi();
 
 const popupShow = new PopupShow(popup);
 const formValidate = new FormValidation(form, formBtn, validateStringError);
-const news = new NewsApi();
 const nameInput = new Popup(popup);
-const headerClass = new Header(header);
 const articleListRender = new NewsCardList(cardsContainer);
-const authApi = new MainApi();
+const formState = new FormRequestState(form);
 
 /// переменные для отрисовки по кнопке showMore
 let newsList = [];
 let i = 0;
 ///
 
-function firstLoad() {
-  localStorage.getItem("username") ? headerClass.getAuthContent() : 0;
-}
-firstLoad();
-
 function authBtnEvent(event) {
-  if (event.target.textContent === "Авторизоваться") popupShow.open();
+  if (event.target.textContent === "Авторизоваться") {
+    popupShow.open();
+  }
   if (event.target.textContent === localStorage.getItem("username")) {
     headerClass.logout();
   }
@@ -76,30 +80,45 @@ function signBtnEvent(event) {
 }
 //функция которая принимает объект данных, для отправки запроcа на авторизацию или регистрацию
 async function getAuth(date) {
+  formState.deactiveState();
   if (!date.name) {
-    const answer = await authApi.signin(date);
-    if (answer.status === 200) {
-      authApi.getUserData().then((res) => {
-        localStorage.setItem("username", res.data.name);
-        popupShow.close();
-        headerClass.getAuthContent();
-      });
-    }
-    if (answer.status === 401) {
-      authText.textContent = "Неверный email или пароль";
+    try {
+      const answer = await authApi.signin(date);
+      if (answer.status === 200) {
+        authApi
+          .getUserData()
+          .then((res) => {
+            localStorage.setItem("username", res.data.name);
+            popupShow.close();
+            headerClass.getAuthContent();
+          })
+          .catch((e) => (authText.textContent = "С запросом что-то не так"));
+      }
+      if (answer.status === 401) {
+        authText.textContent = "Неверный email или пароль";
+      }
+    } catch (e) {
+      authText.textContent = "С запросом что-то не так";
     }
   } else if (date.name) {
-    const answer = await authApi.signup(date);
-    if (answer.status === 200) {
-      popupShow.close();
-      toggleSuccessful();
+    try {
+      const answer = await authApi.signup(date);
+      console.log(answer.status);
+      if (answer.status === 200) {
+        popupShow.close();
+        toggleSuccessful();
+      }
+      if (answer.status === 409) {
+        authText.textContent = "Пользователь с таким email уже есть";
+      }
+      if (answer.status >= 500) {
+        authText.textContent = "Что-то с сервером";
+      }
+    } catch (e) {
+      authText.textContent = "С запросом что-то не так";
     }
-    if (answer.status === 409) {
-      authText.textContent = "Пользователь с таким email уже есть";
-    }
-  } else {
-    alert("Error!");
   }
+  formState.activeState();
 }
 
 const today = new Date();
@@ -128,26 +147,38 @@ function clearCardList() {
 }
 
 function requestNews() {
-  i = 0;
-  if (cardsContainer.children.length !== 0) {
-    clearCardList();
-  }
-  preloader.style.display = "flex";
-  resoultArticlesBlock.style.display = "none";
-  news
-    .getNews(searchInput.value, formatDate(today), formatDate(weekBefore))
-    .then((res) => {
-      preloader.style.display = "none";
-      if (res.articles.length > 0) {
-        resoultArticlesBlock.style.display = "flex";
-        if (resoultEmpty.style.display === "flex") {
-          resoultEmpty.style.display = "none";
+  inputError.textContent = "";
+  if (searchInput.value) {
+    searchInput.placeholder = "Введите тему новости";
+    searchBtn.style.backgroundColor = "#2f71e5";
+    i = 0;
+    if (cardsContainer.children.length !== 0) {
+      clearCardList();
+    }
+    preloader.style.display = "flex";
+    resoultArticlesBlock.style.display = "none";
+    news
+      .getNews(searchInput.value, formatDate(today), formatDate(weekBefore))
+      .then((res) => {
+        preloader.style.display = "none";
+        if (res.articles.length > 0) {
+          resoultArticlesBlock.style.display = "flex";
+          if (resoultEmpty.style.display === "flex") {
+            resoultEmpty.style.display = "none";
+          }
+          showArticle(res.articles);
+        } else if (res.articles.length === 0) {
+          resoultEmpty.style.display = "flex";
         }
-        showArticle(res.articles);
-      } else if (res.articles.length === 0) {
-        resoultEmpty.style.display = "flex";
-      }
-    });
+      })
+      .catch((e) => {
+        preloader.style.display = "none";
+        inputError.textContent = "Что-то не так с запросом";
+      });
+  } else {
+    searchInput.placeholder = validateStringError.validatiobSearchInputRU;
+    searchBtn.style.backgroundColor = "red";
+  }
 }
 
 function showArticle(news) {
@@ -176,7 +207,6 @@ function burgerShow() {
   burgerMenu.classList.toggle("active");
   body.classList.toggle("fixed");
   popupShow.close();
-
 }
 
 function toggleSuccessful() {

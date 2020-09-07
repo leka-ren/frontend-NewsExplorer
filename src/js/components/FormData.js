@@ -8,7 +8,7 @@ export default class FormData {
 
   //приватный метод который принимает функцию, в котороую мы передаем собарнный объект функция отправляет запрос на сервер
   _getInfo(getAuth) {
-    let date = {};
+    const date = {};
     let i = 0;
     while (this.input[i]) {
       date[this.input[i].name] = this.input[i].value;

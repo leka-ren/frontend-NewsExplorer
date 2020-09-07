@@ -18,16 +18,9 @@ export default class MainApi {
         email,
         password,
       }),
-    })
-      .then((res) => {
-        if (res.status >= 500) {
-          Promise.reject(new Error(`Ошибка: ${res.status}`));
-        }
-        return res;
-      })
-      .catch((err) =>
-        Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
-      );
+    }).then((res) => {
+      return res;
+    });
   }
 
   signin({ email, password }) {
@@ -41,47 +34,30 @@ export default class MainApi {
         email,
         password,
       }),
-    })
-      .then((res) => {
-        if (res.status >= 500) {
-          Promise.reject(new Error(`Ошибка: ${res.status}`));
-        }
-        return res;
-      })
-      .catch((err) =>
-        Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
-      );
+    }).then((res) => {
+      return res;
+    });
   }
 
   getUserData() {
     return fetch(`https://${this.url}/users/me`, {
       method: "GET",
       credentials: "include",
-    })
-      .then((res) => {
-        if (res.ok) {
-          return Promise.resolve(res.json());
-        }
-        Promise.reject(new Error(`Ошибка: ${res.status}`));
-      })
-      .catch((e) =>
-        Promise.reject(new Error(`Ошибка соединения: ${e.message}`))
-      );
+    }).then((res) => {
+      if (res.ok) {
+        return Promise.resolve(res.json());
+      }
+    });
   }
   getArticles() {
     return fetch(`https://${this.url}/articles`, {
       method: "GET",
       credentials: "include",
-    })
-      .then((res) => {
-        if (res.ok) {
-          return Promise.resolve(res.json());
-        }
-        Promise.reject(new Error(`Ошибка: ${res.status}`));
-      })
-      .catch((e) =>
-        Promise.reject(new Error(`Ошибка соединения: ${e.message}`))
-      );
+    }).then((res) => {
+      if (res.ok) {
+        return Promise.resolve(res.json());
+      }
+    });
   }
   createArticle(saveData) {
     return fetch(`https://${this.url}/articles`, {
@@ -99,28 +75,16 @@ export default class MainApi {
         link: saveData.link,
         image: saveData.image,
       }),
-    })
-      .then((res) => {
-        if (res.status >= 500) {
-          Promise.reject(new Error(`Ошибка: ${res.status}`));
-        }
-        return Promise.resolve(res.json());
-      })
-      .catch((err) =>
-        Promise.reject(new Error(`Ошибка соединения: ${err.message}`))
-      );
+    }).then((res) => {
+      return Promise.resolve(res.json());
+    });
   }
   removeArticle(atricleId) {
     return fetch(`https://${this.url}/articles/${atricleId}`, {
       method: "DELETE",
       credentials: "include",
-    })
-      .then((res) => {
-        if (res.status === 200) return res;
-        Promise.reject(new Error(`Ошибка: ${res.status}`));
-      })
-      .catch((e) =>
-        Promise.reject(new Error(`Ошибка соединения: ${e.message}`))
-      );
+    }).then((res) => {
+      return res;
+    });
   }
 }
