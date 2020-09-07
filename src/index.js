@@ -148,6 +148,7 @@ function clearCardList() {
 
 function requestNews() {
   inputError.textContent = "";
+  showMoreBtn.style.display = 'block'
   if (searchInput.value) {
     searchInput.placeholder = "Введите тему новости";
     searchBtn.style.backgroundColor = "#2f71e5";
@@ -186,12 +187,16 @@ function showArticle(news) {
   if (newsList.length === 0) {
     newsList = news;
   }
+  console.log(newsList.length);
   let count = i + 3;
   if (i > 0) {
     i += 1;
     count += 1;
   }
   for (i; i < count && i <= newsList.length - 1; i++) {
+    if(i === newsList.length - 2) {
+      showMoreBtn.style.display = 'none';
+    }
     const createBaseCard = new NewsCard(
       newsList[i],
       searchInput.value,
@@ -200,6 +205,7 @@ function showArticle(news) {
     ); //значение из инпута, для заполнения keyword
     articlesCard.push(createBaseCard);
   }
+  console.log(i);
   articleListRender.renderResults(articlesCard);
 }
 
