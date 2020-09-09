@@ -10,21 +10,26 @@
   line-height: 24px;
   text-align: center;
   box-shadow: 0px 0px 0px rgba(14, 26, 57, 0.2);
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
   height: 64px;
   width: 360px;
-  margin: 40px 0 0;
+  margin:  0;
   align-self: center;
 }
 
 .popup__button:hover {
-    cursor: pointer;
-    background-color: #14346b;
-    box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  cursor: pointer;
+  background-color: #14346b;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+
+.popup__button:disabled {
+  background: #e6e8eb;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 666px) {
-    .popup__button {
-        width: 288px;
-    }   
+  .popup__button {
+    width: 288px;
+  }
 }

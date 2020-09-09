@@ -6,6 +6,7 @@
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/active/active.css");
 @import url("../blocks/popup/popup.css");
+@import url("../blocks/fixed/fixed.css");
 
 body {
   padding: 0;
@@ -16,9 +17,9 @@ body {
 a {
   text-decoration: none;
   opacity: 1;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 a:hover {
-  opacity: .7;
+  opacity: 0.7;
 }

@@ -9,6 +9,9 @@
 @import url("./__name-input/popup__name-input.css");
 @import url("./__sign/popup__sign.css");
 @import url("./__sign-button/popup__sign-button.css");
+@import url("./__background/popup__background.css");
+@import url("./__authorization-text/popup__authorization-text.css");
+@import url("./__subtitle/popup__subtitle.css");
 
 .popup {
   position: fixed;
@@ -20,7 +23,7 @@
   align-items: center;
   justify-content: center;
   display: none;
-  z-index: 10000;
+  z-index: 100;
   transition: all .2s ease;
 }
 

@@ -1,0 +1,14 @@
+.popup__subtitle {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #2f71e5;
+  transition: all .2s ease-in;
+}
+
+
+.popup__subtitle:hover {
+    color: #102852;
+}
